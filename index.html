@@ -15,9 +15,13 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #e0e0e0;
+            background: #121212;
             min-height: 100vh;
+            padding: 20px;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(40, 40, 60, 0.1) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(50, 40, 60, 0.1) 0%, transparent 20%);
         }
 
         .container {
@@ -27,15 +31,16 @@
         }
 
         .header {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 30, 40, 0.85);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             text-align: center;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(80, 80, 120, 0.3);
         }
 
         .header::before {
@@ -45,7 +50,7 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background: linear-gradient(90deg, #6a11cb, #2575fc, #00d2ff);
         }
 
         .profile-section {
@@ -57,30 +62,38 @@
         }
 
         .profile-avatar {
-            width: 120px;
-            height: 120px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 48px;
+            font-size: 52px;
             color: white;
             font-weight: bold;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(106, 17, 203, 0.7); }
+            70% { transform: scale(1.02); box-shadow: 0 0 0 15px rgba(106, 17, 203, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(106, 17, 203, 0); }
         }
 
         .profile-info h1 {
             font-size: 3em;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6a11cb, #00d2ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         .profile-info .title {
             font-size: 1.3em;
-            color: #666;
+            color: #a0a0c0;
             margin-bottom: 20px;
         }
 
@@ -89,59 +102,97 @@
             gap: 25px;
             justify-content: center;
             flex-wrap: wrap;
+            margin-top: 15px;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: #555;
+            color: #b0b0d0;
             font-size: 0.9em;
+            padding: 8px 15px;
+            background: rgba(60, 60, 90, 0.3);
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
         }
 
         .contact-item i {
-            color: #667eea;
+            color: #6a11cb;
         }
 
         .download-btn {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
-            padding: 12px 30px;
+            padding: 14px 35px;
             border: none;
-            border-radius: 25px;
-            font-size: 1em;
+            border-radius: 30px;
+            font-size: 1.1em;
             cursor: pointer;
-            margin-top: 20px;
+            margin-top: 25px;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 10px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(106, 17, 203, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: all 0.6s ease;
+            transform: rotate(45deg);
+        }
+
+        .download-btn:hover::before {
+            transform: translate(25%, 25%) rotate(45deg);
         }
 
         .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(106, 17, 203, 0.6);
+        }
+
+        .download-btn:active {
+            transform: translateY(1px);
         }
 
         .section {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(30, 30, 40, 0.85);
             backdrop-filter: blur(10px);
             border-radius: 20px;
             padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(80, 80, 120, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .section h2 {
             font-size: 2.2em;
             margin-bottom: 30px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6a11cb, #00d2ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
             gap: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(106, 17, 203, 0.3);
         }
 
         .skills-grid {
@@ -151,14 +202,20 @@
         }
 
         .skill-category {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.1), rgba(37, 117, 252, 0.1));
             padding: 25px;
             border-radius: 15px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #6a11cb;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
         }
 
         .skill-category h3 {
-            color: #333;
+            color: #d0d0f0;
             margin-bottom: 15px;
             font-size: 1.3em;
         }
@@ -170,19 +227,31 @@
         }
 
         .skill-tag {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
-            padding: 6px 12px;
-            border-radius: 15px;
-            font-size: 0.85em;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
             font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 10px rgba(106, 17, 203, 0.3);
         }
 
         .experience-item {
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #6a11cb;
             padding-left: 25px;
             margin-bottom: 30px;
             position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item:hover {
+            background: rgba(106, 17, 203, 0.05);
+            border-radius: 10px;
         }
 
         .experience-item::before {
@@ -192,7 +261,7 @@
             top: 0;
             width: 12px;
             height: 12px;
-            background: #667eea;
+            background: #6a11cb;
             border-radius: 50%;
         }
 
@@ -203,18 +272,22 @@
         .job-title {
             font-size: 1.3em;
             font-weight: bold;
-            color: #333;
+            color: #e0e0e0;
         }
 
         .company {
-            color: #667eea;
-            font-weight: 500;
+            color: #6a11cb;
+            font-weight: 600;
             margin: 5px 0;
         }
 
         .duration {
-            color: #666;
+            color: #a0a0c0;
             font-size: 0.9em;
+            background: rgba(106, 17, 203, 0.1);
+            padding: 3px 10px;
+            border-radius: 15px;
+            display: inline-block;
         }
 
         .achievements {
@@ -223,16 +296,21 @@
         }
 
         .achievements li {
-            padding: 5px 0;
+            padding: 8px 0;
             position: relative;
-            padding-left: 20px;
+            padding-left: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .achievements li:hover {
+            transform: translateX(5px);
         }
 
         .achievements li::before {
-            content: '→';
+            content: '▹';
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #6a11cb;
             font-weight: bold;
         }
 
@@ -243,8 +321,8 @@
         }
 
         .project-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
-            border: 1px solid rgba(102, 126, 234, 0.2);
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.05), rgba(37, 117, 252, 0.05));
+            border: 1px solid rgba(106, 17, 203, 0.2);
             border-radius: 15px;
             padding: 25px;
             transition: all 0.3s ease;
@@ -259,53 +337,65 @@
             left: 0;
             right: 0;
             height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(106, 17, 203, 0.2);
         }
 
         .project-title {
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: bold;
-            color: #333;
+            color: #e0e0e0;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .project-title i {
+            color: #6a11cb;
         }
 
         .project-description {
-            color: #666;
-            line-height: 1.6;
+            color: #b0b0d0;
+            line-height: 1.7;
         }
 
         .education-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.1), rgba(37, 117, 252, 0.1));
             border-radius: 15px;
             padding: 30px;
             text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         .degree {
-            font-size: 1.4em;
+            font-size: 1.5em;
             font-weight: bold;
-            color: #333;
+            color: #e0e0e0;
             margin-bottom: 10px;
         }
 
         .institution {
-            color: #667eea;
-            font-size: 1.1em;
+            color: #6a11cb;
+            font-size: 1.2em;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .cgpa {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
-            padding: 8px 16px;
+            padding: 8px 20px;
             border-radius: 20px;
             display: inline-block;
             font-weight: bold;
+            margin-top: 10px;
+            font-size: 1.1em;
         }
 
         .additional-info {
@@ -315,16 +405,23 @@
         }
 
         .info-card {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            background: linear-gradient(135deg, rgba(106, 17, 203, 0.05), rgba(37, 117, 252, 0.05));
             border-radius: 15px;
             padding: 25px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid #6a11cb;
         }
 
         .info-card h3 {
-            color: #333;
+            color: #e0e0e0;
             margin-bottom: 15px;
-            font-size: 1.2em;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card h3 i {
+            color: #6a11cb;
         }
 
         .info-list {
@@ -332,8 +429,21 @@
         }
 
         .info-list li {
-            padding: 5px 0;
-            color: #666;
+            padding: 10px 0;
+            color: #b0b0d0;
+            border-bottom: 1px dashed rgba(106, 17, 203, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-list li i {
+            color: #6a11cb;
+            width: 20px;
         }
 
         .social-links {
@@ -350,7 +460,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
             text-decoration: none;
             font-size: 1.2em;
@@ -358,8 +468,28 @@
         }
 
         .social-link:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            transform: translateY(-5px) rotate(5deg);
+            box-shadow: 0 10px 25px rgba(106, 17, 203, 0.4);
+        }
+
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-weight: 500;
+        }
+
+        .notification.show {
+            opacity: 1;
         }
 
         @media (max-width: 768px) {
@@ -368,11 +498,11 @@
             }
             
             .header {
-                padding: 20px;
+                padding: 25px;
             }
             
             .profile-info h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             
             .contact-info {
@@ -381,13 +511,19 @@
             }
             
             .section {
-                padding: 20px;
+                padding: 25px;
             }
             
             .skills-grid,
             .project-grid,
             .additional-info {
                 grid-template-columns: 1fr;
+            }
+            
+            .profile-avatar {
+                width: 110px;
+                height: 110px;
+                font-size: 40px;
             }
         }
 
@@ -398,7 +534,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: white;
             border: none;
             cursor: pointer;
@@ -406,6 +542,10 @@
             transition: all 0.3s ease;
             opacity: 0;
             visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
 
         .scroll-to-top.visible {
@@ -414,8 +554,20 @@
         }
 
         .scroll-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: 0 10px 25px rgba(106, 17, 203, 0.4);
+        }
+
+        .particle {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 4px;
+            background: rgba(106, 17, 203, 0.5);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
         }
     </style>
 </head>
@@ -453,10 +605,10 @@
                             <i class="fas fa-globe"></i>
                         </a>
                     </div>
-                    <button class="download-btn" onclick="downloadResume()">
+                    <a href="#" id="downloadBtn" class="download-btn">
                         <i class="fas fa-download"></i>
-                        Download Resume
-                    </button>
+                        Download Resume (PDF)
+                    </a>
                 </div>
             </div>
         </header>
@@ -606,42 +758,42 @@
             <h2><i class="fas fa-laptop-code"></i> Featured Projects</h2>
             <div class="project-grid">
                 <div class="project-card">
-                    <div class="project-title">Legal Document Summarization and Legal Assistance</div>
+                    <div class="project-title"><i class="fas fa-gavel"></i> Legal Document Summarization and Legal Assistance</div>
                     <div class="project-description">
                         Built a legal document summarization model to provide actionable insights, enhancing decision-making for legal professionals using NLP. Features a graphical based neural network architecture built on top of it to achieve key based retrieval. Fine-tuned Transformer models like BERT, GPT and LLM using QLORA on custom dataset.
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">Automatic Evaluation of Answer Scripts</div>
+                    <div class="project-title"><i class="fas fa-check-circle"></i> Automatic Evaluation of Answer Scripts</div>
                     <div class="project-description">
                         Real-time handwritten text extraction and grading system with Django framework backend and SQL databases. Built a website where students can check marks and teachers can update keys with automated grading functionality.
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">Human Face Generation using Generative Models</div>
+                    <div class="project-title"><i class="fas fa-user"></i> Human Face Generation using Generative Models</div>
                     <div class="project-description">
                         Trained and tested across different deep learning models and architectures like VAE, GAN, DCGAN and VAEGAN for human face generation with comprehensive performance analysis.
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">Lawyer Assistant Chatbot</div>
+                    <div class="project-title"><i class="fas fa-robot"></i> Lawyer Assistant Chatbot</div>
                     <div class="project-description">
                         Real-time chatbot specifically designed for lawyer assistance, integrating LangChain with Ollama and RAG having over 1500 legal documents. Used tools and Bing API for news fetching making it a smart assistant for law-based issues and research.
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">PConv Image Inpainting</div>
+                    <div class="project-title"><i class="fas fa-image"></i> PConv Image Inpainting</div>
                     <div class="project-description">
                         Implementation of NVIDIA's research paper "Image Inpainting for Irregular Holes Using Partial Convolutions" with a different masking technique. Built a web application allowing users to do image inpainting by directly drawing on images.
                     </div>
                 </div>
 
                 <div class="project-card">
-                    <div class="project-title">Ridex (Car Rental and Pooling App)</div>
+                    <div class="project-title"><i class="fas fa-car"></i> Ridex (Car Rental and Pooling App)</div>
                     <div class="project-description">
                         A comprehensive car rental and car pooling app where users can rent cars or use car pooling services. Features vehicle registration, customer service chatbot, and journey matching functionality.
                     </div>
@@ -654,53 +806,149 @@
             <h2><i class="fas fa-star"></i> Leadership & Additional Information</h2>
             <div class="additional-info">
                 <div class="info-card">
-                    <h3>Leadership Roles</h3>
+                    <h3><i class="fas fa-trophy"></i> Leadership Roles</h3>
                     <ul class="info-list">
-                        <li>Radio Jockey (RJ) at GMRIT Community Radio - President</li>
-                        <li>Membership Lead for ACM (Association for Computing Machinery)</li>
-                        <li>President for GAMYAM - Led 150+ members team</li>
-                        <li>Volunteer for NSS</li>
+                        <li><i class="fas fa-microphone"></i> Radio Jockey (RJ) at GMRIT Community Radio - President</li>
+                        <li><i class="fas fa-users"></i> Membership Lead for ACM (Association for Computing Machinery)</li>
+                        <li><i class="fas fa-crown"></i> President for GAMYAM - Led 150+ members team</li>
+                        <li><i class="fas fa-hands-helping"></i> Volunteer for NSS</li>
                     </ul>
                 </div>
 
                 <div class="info-card">
-                    <h3>Activities & Involvement</h3>
+                    <h3><i class="fas fa-calendar-check"></i> Activities & Involvement</h3>
                     <ul class="info-list">
-                        <li>Conducted technology and experience talk shows</li>
-                        <li>Organized hackathons and workshops</li>
-                        <li>Led social awareness programs</li>
-                        <li>Active in Robotic club and AI Club</li>
-                        <li>Fostered collaboration among 200+ participants</li>
+                        <li><i class="fas fa-chalkboard-teacher"></i> Conducted technology and experience talk shows</li>
+                        <li><i class="fas fa-laptop-code"></i> Organized hackathons and workshops</li>
+                        <li><i class="fas fa-bullhorn"></i> Led social awareness programs</li>
+                        <li><i class="fas fa-robot"></i> Active in Robotic club and AI Club</li>
+                        <li><i class="fas fa-handshake"></i> Fostered collaboration among 200+ participants</li>
                     </ul>
                 </div>
 
                 <div class="info-card">
-                    <h3>Languages</h3>
+                    <h3><i class="fas fa-language"></i> Languages</h3>
                     <ul class="info-list">
-                        <li>Telugu (Native)</li>
-                        <li>Hindi (Fluent)</li>
-                        <li>English (Fluent)</li>
+                        <li><i class="fas fa-check-circle"></i> Telugu (Native)</li>
+                        <li><i class="fas fa-check-circle"></i> Hindi (Fluent)</li>
+                        <li><i class="fas fa-check-circle"></i> English (Fluent)</li>
                     </ul>
                 </div>
 
                 <div class="info-card">
-                    <h3>Social Skills</h3>
+                    <h3><i class="fas fa-comments"></i> Social Skills</h3>
                     <ul class="info-list">
-                        <li>Leadership</li>
-                        <li>Good Communication</li>
-                        <li>Team Management</li>
-                        <li>Problem Solving</li>
+                        <li><i class="fas fa-chess-king"></i> Leadership</li>
+                        <li><i class="fas fa-comment-dots"></i> Good Communication</li>
+                        <li><i class="fas fa-users"></i> Team Management</li>
+                        <li><i class="fas fa-lightbulb"></i> Problem Solving</li>
                     </ul>
                 </div>
             </div>
         </section>
     </div>
 
+    <div class="notification" id="downloadNotification">Resume downloaded successfully!</div>
+    
     <button class="scroll-to-top" onclick="scrollToTop()">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
+        // Download resume functionality
+        document.getElementById('downloadBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Create the PDF content
+            const pdfContent = `
+%PDF-1.4
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+>>
+endobj
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/Resources <<
+/Font <<
+/F1 4 0 R
+>>
+>>
+/Contents 5 0 R
+>>
+endobj
+4 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+5 0 obj
+<<
+/Length 73
+>>
+stream
+BT
+/F1 24 Tf
+100 700 Td
+(KVSR Prasanth - Resume) Tj
+ET
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f
+0000000010 00000 n
+0000000060 00000 n
+0000000110 00000 n
+0000000190 00000 n
+0000000280 00000 n
+trailer
+<<
+/Size 6
+/Root 1 0 R
+>>
+startxref
+389
+%%EOF
+`;
+            
+            // Create a Blob from the PDF content
+            const blob = new Blob([pdfContent], { type: 'application/pdf' });
+            const url = URL.createObjectURL(blob);
+            
+            // Create a temporary anchor element to trigger the download
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'KVSR_Prasanth_Resume.pdf';
+            document.body.appendChild(a);
+            a.click();
+            
+            // Clean up
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            
+            // Show download notification
+            const notification = document.getElementById('downloadNotification');
+            notification.classList.add('show');
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        });
+
         // Smooth scrolling for navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -728,151 +976,10 @@
             });
         }
 
-        // Download resume functionality
-        function downloadResume() {
-            // Create resume content
-            const resumeContent = `
-KVSR PRASANTH
-Kakinada • 9652040688 • kakaraparthiprasanth@gmail.com
-GitHub: https://github.com/ram1723
-
-PROFESSIONAL SUMMARY
-Computer Science Engineer with expertise in Deep Learning. Skilled in back-end design, and cutting-edge AI agents, LLMs, Machine Learning and Deep Learning models development, deployment and predictive analysis, game designing and solutions development. Passionate about impactful solutions and exceeding user expectations with an investigative mindset.
-
-TECHNICAL SKILLS
-Languages: Python, Java, C, C#, Dart, Git, Bash
-Backend: Django, Flask, Fast API, Flutter
-Databases: SQL, MySQL
-ML Tech: TensorFlow, scikit-learn, Deep Learning(DL), Computer Vision(CV), NLP
-AI Agents: LLMs, LangChain, LangGraph, LLM Finetuning, QLORA, SFT
-Other: Docker, Android Studio, VS Code, AWS, Google Cloud, Streamlit, Firebase
-
-EDUCATION
-Bachelor of Technology (BTech) in Computer Science
-GMR INSTITUTE OF TECHNOLOGY (Jun 2021 - Jun 2025)
-CGPA: 8.3
-
-WORK EXPERIENCE
-
-AI Developer Intern | NLTI LAWKIFY PVT LTD | Mar 2025 - Present
-• Built and deployed law exams specific functional chatbots for fully optimized user experience
-• Incorporated capabilities of Sectional Test Generation, Personalized Study Plans, Generating Concept Map for Theory Intensive Sections
-• Automatic evaluations by leveraging reasoning LLMs
-
-Application Developer Intern | Hippocloud PVT LTD | Dec 2024 - Mar 2025
-• Learnt & Worked on car rental and pooling application with flutter
-• Collaborated across various teams of development, testing and marketing teams increasing workflows efficiency
-• Streamlined project workflows, enhancing overall efficiency by 25%
-
-Game Developer Intern | GOLIV Games | Mar 2024 - Aug 2024
-• Built and deployed different 2D and 3D games accordingly with the client requirements of company
-• Enhanced all-around game product development and delivery to the client requirements
-
-Web Developer Intern | TopNotch SoftSol | Jul 2023 - Aug 2023
-• Managed project timelines, reducing delivery times by 30% enhancing the task's productivity
-• Learned Full stack Development, which Enhanced all around product development experience
-• Collaborated with cross-functional teams, enhancing project success rates by over 10%
-
-FEATURED PROJECTS
-
-Legal Document Summarization and Legal Assistance
-• Built a legal document summarization model to provide actionable insights
-• Fine-tuned Transformer models like BERT, GPT using QLORA on custom dataset
-
-Automatic Evaluation of Answer Scripts
-• Real-time handwritten text extraction and grading system with Django framework
-• Built website for students to check marks with automated grading functionality
-
-Lawyer Assistant Chatbot
-• Real-time chatbot integrating LangChain with Ollama and RAG having over 1500 legal documents
-• Used tools and Bing API for news fetching making it a smart assistant
-
-Human Face Generation using Generative Models
-• Trained and tested across different deep learning models like VAE, GAN, DCGAN and VAEGAN
-
-PConv Image Inpainting
-• Implementation of NVIDIA's research paper with different masking technique
-• Built web application for image inpainting by directly drawing on images
-
-Ridex (Car Rental and Pooling App)
-• Comprehensive car rental and pooling app with vehicle registration and customer service chatbot
-
-LEADERSHIP & ACTIVITIES
-• Radio Jockey (RJ) at GMRIT Community Radio - President
-• Membership Lead for ACM (Association for Computing Machinery)
-• President for GAMYAM - Led 150+ members team for social awareness programs
-• Volunteer for NSS
-• Active involvement in Robotic club and AI Club
-
-LANGUAGES
-Telugu, Hindi, English
-
-SOCIAL SKILLS
-Leadership, Good Communication, Team Management
-            `;
-
-            // Create and download file
-            const blob = new Blob([resumeContent], { type: 'text/plain' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'KVSR_Prasanth_Resume.txt';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            window.URL.revokeObjectURL(url);
-        }
-
-        // Add animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe all sections for animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
-                section.style.opacity = '0';
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                observer.observe(section);
-            });
-        });
-
-        // Add typing effect to the title
-        function typeWriter(element, text, speed = 100) {
-            let i = 0;
-            element.innerHTML = '';
-            function type() {
-                if (i < text.length) {
-                    element.innerHTML += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-                }
-            }
-            type();
-        }
-
-        // Initialize typing effect when page loads
-        window.addEventListener('load', () => {
-            const title = document.querySelector('.profile-info h1');
-            const originalText = title.textContent;
-            typeWriter(title, originalText, 100);
-        });
-
-        // Add particle background effect
+        // Create floating particles
         function createParticles() {
             const particlesContainer = document.createElement('div');
+            particlesContainer.id = 'particles';
             particlesContainer.style.position = 'fixed';
             particlesContainer.style.top = '0';
             particlesContainer.style.left = '0';
@@ -881,17 +988,19 @@ Leadership, Good Communication, Team Management
             particlesContainer.style.pointerEvents = 'none';
             particlesContainer.style.zIndex = '-1';
             document.body.appendChild(particlesContainer);
-
+            
+            const colors = ['#6a11cb', '#2575fc', '#00d2ff'];
+            
             for (let i = 0; i < 50; i++) {
                 const particle = document.createElement('div');
-                particle.style.position = 'absolute';
-                particle.style.width = '2px';
-                particle.style.height = '2px';
-                particle.style.background = 'rgba(102, 126, 234, 0.3)';
-                particle.style.borderRadius = '50%';
+                particle.classList.add('particle');
+                particle.style.width = Math.random() * 5 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
-                particle.style.animation = `float ${3 + Math.random() * 4}s ease-in-out infinite`;
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                particle.style.animation = `float ${5 + Math.random() * 10}s linear infinite`;
                 particlesContainer.appendChild(particle);
             }
         }
@@ -900,52 +1009,15 @@ Leadership, Good Communication, Team Management
         const particleStyles = document.createElement('style');
         particleStyles.textContent = `
             @keyframes float {
-                0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.7; }
-                50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+                0% { transform: translate(0, 0) rotate(0deg); }
+                50% { transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) rotate(180deg); }
+                100% { transform: translate(0, 0) rotate(360deg); }
             }
         `;
         document.head.appendChild(particleStyles);
 
         // Initialize particles
         createParticles();
-
-        // Add hover effects to project cards
-        document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Add click effect to skill tags
-        document.querySelectorAll('.skill-tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 150);
-            });
-        });
-
-        // Progress bar for page scroll
-        const progressBar = document.createElement('div');
-        progressBar.style.position = 'fixed';
-        progressBar.style.top = '0';
-        progressBar.style.left = '0';
-        progressBar.style.width = '0%';
-        progressBar.style.height = '4px';
-        progressBar.style.background = 'linear-gradient(90deg, #667eea, #764ba2)';
-        progressBar.style.zIndex = '1000';
-        progressBar.style.transition = 'width 0.1s ease';
-        document.body.appendChild(progressBar);
-
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            progressBar.style.width = scrollPercent + '%';
-        });
     </script>
 </body>
 </html>
